@@ -1,0 +1,10 @@
+luma.core==2.2.0
+luma.led_matrix==1.5.0
+smbus==1.1.post2
+pyalsaaudio==0.8.4
+requests==2.25.1
+RPi.GPIO==0.7.0
+smbus==1.1.post2
+socket.py==0.1.0
+threaded==4.1.0
+times==0.7
