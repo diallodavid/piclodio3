@@ -4,21 +4,35 @@ services:
 
   backend:
     image: sispheor/piclodio-back
+    container_name: piclodio-back
     volumes:
       - /tmp/static:/code/static
       - ${PWD}/piclodio_db:/code/db
     devices:
       - /dev/snd:/dev/snd # audio control
-    ports:
-      - "8000:8000"
     restart: always
 
   frontend:
     image: sispheor/piclodio-front
+    container_name: piclodio-front
     ports:
       - "80:80"
     volumes:
       - /tmp/static:/static
+    depends_on:
+      - backend
+    restart: always
+
+  device:
+    build: ./device
+    container_name: piclodio-device
+    volumes:
+      - /sys:/sys
+    devices:
+      - /dev/snd:/dev/snd # audio control
+      - /dev/spidev0.0:/dev/spidev0.0
+      - /dev/i2c-1:/dev/i2c-1
+      - /dev/gpiomem:/dev/gpiomem
     depends_on:
       - backend
     restart: always
