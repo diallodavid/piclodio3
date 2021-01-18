@@ -3,7 +3,7 @@ version: "3.7"
 services:
 
   backend:
-    image: sispheor/piclodio-back
+    image: diallodavid/piclodio-back
     container_name: piclodio-back
     volumes:
       - /tmp/static:/code/static
