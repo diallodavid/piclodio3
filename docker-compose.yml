@@ -10,6 +10,8 @@ services:
       - ${PWD}/piclodio_db:/code/db
     devices:
       - /dev/snd:/dev/snd # audio control
+    ports:
+      - "8000:8000"
     restart: always
 
   frontend:
