@@ -15,7 +15,7 @@ services:
     restart: always
 
   frontend:
-    image: sispheor/piclodio-front
+    image: diallodavid/piclodio-front
     container_name: piclodio-front
     ports:
       - "80:80"
