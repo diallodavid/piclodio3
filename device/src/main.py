@@ -1,11 +1,13 @@
 import logging
+import platform
 import time
 
-from clock    import Clock
-from display  import Display
+#from clock    import Clock
+from display  import Clock, Display
 from radios   import Radios, stop
 from settings import Settings
-from volume   import Volume
+if platform.machine().startswith('arm'):
+  from volume   import Volume
 
 from apa102_pi.driver import apa102
 
@@ -33,8 +35,9 @@ def back2(display,selection):
   logger.debug('Display back - selection <%s>',selection)
   display.stop()
 
-volume = Volume()
-volume.start()
+if platform.machine().startswith('arm'):
+  volume = Volume()
+  volume.start()
 
 while True:
   clock = Clock()

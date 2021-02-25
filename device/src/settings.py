@@ -1,18 +1,11 @@
 import logging
 import socket
 
-import clock   
-
-from display import Display, setContrast
+from display import Display, Contrast, setContrast
 
 logger = logging.getLogger(__name__)
 
-items = ["Network","Brightness"]
 global item
-
-contrast = [ { 'name' : 'Low',    'value' : 0},
-             { 'name' : 'Medium', 'value' : 100},
-             { 'name' : 'High',   'value' : 255}]
 
 def ok(display,selection):
   global item
@@ -30,14 +23,11 @@ def Brightness():
   item = None
 
   display = Display()
-  display.start(['Low','Medium','High'],ok=ok,back=back)
+  display.start(list(Contrast.keys()),ok=ok,back=back)
 
   display.join()
   
-  for level in contrast:
-    if item == level['name']:
-      setContrast(level['value'])
-      clock.setContrast(level['value'])
+  setContrast(item)
   
   display.stop()
 
@@ -60,7 +50,7 @@ def Settings():
     item = None
 
     display = Display()
-    display.start(items,ok=ok,back=back)
+    display.start(["Network","Brightness"],ok=ok,back=back)
     logger.debug('display join')
     display.join()
 

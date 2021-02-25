@@ -35,7 +35,7 @@ class Gpio:
       GPIO.add_event_detect(self.BACK, GPIO.FALLING, callback=self.__back, bouncetime=200)
     logger.debug('GPIO created')
 
-  def remove_all_event(self):
+  def stop(self):
     # Destructor does not work with GPIO.setup
     GPIO.remove_event_detect(self.DOWN)
     GPIO.remove_event_detect(self.UP)
