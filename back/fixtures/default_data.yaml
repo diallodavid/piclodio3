@@ -1,36 +1,36 @@
 - model: restapi.webradio
   pk: 1
   fields:
-    name: Asterix Radio
-    url: http://192.99.17.12:6410/
+    name: Rire & Chansons
+    url: http://cdn.nrjaudio.fm/audio1/fr/30401/aac_64.mp3?origine=fluxradios
     is_default: true
 - model: restapi.webradio
   pk: 2
   fields:
-    name: MoveDaHouse
-    url: http://212.71.250.12:8000/stream
+    name: NRJ France
+    url: http://cdn.nrjaudio.fm/audio1/fr/30001/mp3_128.mp3?origine=fluxradios
     is_default: false
 - model: restapi.webradio
   pk: 3
   fields:
-    name: RTL2
-    url: http://streaming.radio.rtl2.fr/rtl2-1-48-192
+    name: Nostalgie France
+    url: http://cdn.nrjaudio.fm/audio1/fr/30601/mp3_128.mp3?origine=fluxradios
     is_default: false
 - model: restapi.webradio
   pk: 4
   fields:
     name: Skyrock
-    url:  http://www.skyrock.fm/stream.php/tunein16_128mp3.mp3
+    url: http://www.skyrock.fm/stream.php/tunein16_128mp3.mp3
     is_default: false
 - model: restapi.webradio
   pk: 5
   fields:
-    name: BBC
-    url:  http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p
+    name: Chérie FM
+    url: http://cdn.nrjaudio.fm/audio1/fr/30201/mp3_128.mp3?origine=fluxradios
     is_default: false
 - model: restapi.webradio
   pk: 6
   fields:
-    name: Hot Radio Grenoble
-    url:  http://st8.hotradio.fr/14
+    name: Ouï FM
+    url: http://broadcast.infomaniak.ch/ouifm-high.mp3
     is_default: false

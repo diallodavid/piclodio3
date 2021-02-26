@@ -14,7 +14,7 @@ FROM python:3.7
 ENV PYTHONUNBUFFERED 1
 
 COPY requirements.txt /
-COPY asoundrc /root/.asoundrc
+COPY fixtures/asoundrc /root/.asoundrc
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
