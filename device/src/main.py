@@ -1,15 +1,14 @@
-import logging
 import platform
+if platform.machine().startswith('arm'):
+  from apa102_pi.driver import apa102
+import logging
 import time
 
-#from clock    import Clock
 from display  import Clock, Display
 from radios   import Radios, stop
 from settings import Settings
 if platform.machine().startswith('arm'):
   from volume   import Volume
-
-from apa102_pi.driver import apa102
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -22,7 +21,7 @@ def ok1(clock):
 
 def back1(clock):
   logger.debug('Clock back')
-  stop()
+  clock.stop()
 
 def ok2(display,selection):
   global item
@@ -44,10 +43,11 @@ while True:
   clock.start(ok=ok1,back=back1)
   logger.debug("Clock join")
 
-  dev = apa102.APA102(num_led=3, mosi=10, sclk=11, ce=8)
-  for i in range(3):
-    dev.set_pixel(i, 0, 0, 0)
-  dev.show()
+  if platform.machine().startswith('arm'):
+    dev = apa102.APA102(num_led=3, mosi=10, sclk=11, ce=8)
+    for i in range(3):
+      dev.set_pixel(i, 0, 0, 0)
+    dev.show()
 
   clock.join()
     
