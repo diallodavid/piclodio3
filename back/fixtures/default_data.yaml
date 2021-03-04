@@ -25,12 +25,12 @@
 - model: restapi.webradio
   pk: 5
   fields:
-    name: Chérie FM
+    name: Cherie FM
     url: http://cdn.nrjaudio.fm/audio1/fr/30201/mp3_128.mp3?origine=fluxradios
     is_default: false
 - model: restapi.webradio
   pk: 6
   fields:
-    name: Ouï FM
+    name: Oui FM
     url: http://broadcast.infomaniak.ch/ouifm-high.mp3
     is_default: false
