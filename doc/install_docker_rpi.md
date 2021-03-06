@@ -4,7 +4,7 @@
 
 Update and upgrade your system
 ```
-sudo apt-get update && sudo apt-get upgrade
+sudo apt update && sudo apt -y upgrade
 ```
 
 ```
