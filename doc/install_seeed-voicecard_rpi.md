@@ -15,7 +15,7 @@ sudo reboot
 
 ## ReSpeaker 2-Mics Pi Hat
 
-![michat](images/mic_hatv1.0.png)
+![michat](../images/mic_hatv1.0.png)
 
 While the upstream wm8960 codec is not currently supported by current Pi kernel builds, upstream wm8960 has some bugs, you must it build manually.
 
