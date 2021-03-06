@@ -14,7 +14,7 @@ FROM python:3.7
 ENV PYTHONUNBUFFERED 1
 
 COPY requirements.txt /
-COPY fixtures/asoundrc /root/.asoundrc
+COPY fixtures/wm8960_asound.state /root/.asoundrc
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
