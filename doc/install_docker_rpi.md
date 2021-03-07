@@ -22,8 +22,8 @@ docker run hello-world
 ## Pip
 
 Install required system lib
-```bash
-sudo apt-get install python3-distutils python3-dev libssl-dev libffi-dev
+```
+sudo apt install -y python3-distutils python3-dev libssl-dev libffi-dev
 ```
 
 Install pip
@@ -36,5 +36,6 @@ sudo python3 get-pip.py
 
 Install compose
 ```
+sudo apt install -y build-essential cargo
 sudo pip3 install docker-compose
 ```
