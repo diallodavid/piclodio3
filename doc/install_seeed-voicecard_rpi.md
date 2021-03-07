@@ -5,7 +5,7 @@ The drivers of [ReSpeaker 2-Mics Pi Hat](https://wiki.seeedstudio.com/ReSpeaker_
 ### Install seeed-voicecard
 Get the seeed voice card source code and install all linux kernel drivers
 ```
-sudo apt update && sudo apt -y upgrade
+sudo apt update
 sudo apt install -y git 
 git clone https://github.com/respeaker/seeed-voicecard
 cd seeed-voicecard
