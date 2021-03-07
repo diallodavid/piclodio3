@@ -1,4 +1,3 @@
-
 import alsaaudio
 
 
@@ -10,7 +9,7 @@ class SoundManager(object):
             mixer = alsaaudio.Mixer()
         except alsaaudio.ALSAAudioError:
             # no master, we are on a Rpi
-            mixer = alsaaudio.Mixer("PCM")
+            mixer = alsaaudio.Mixer(control='Speaker', cardindex=1)
         return mixer
 
     @classmethod
