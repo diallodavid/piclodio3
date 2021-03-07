@@ -12,7 +12,6 @@ class Volume(threading.Thread):
     self.bus = smbus.SMBus(1)
     self.bus.write_byte(self.address,A0)
 
-    #self.mixer = alsaaudio.Mixer(control='Headphone',cardindex=0)
     self.mixer = alsaaudio.Mixer(control='Speaker', cardindex=1)
   
   def run(self):

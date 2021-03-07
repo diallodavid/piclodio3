@@ -7,8 +7,8 @@ class Gpio:
   UP   = 4  # Rouge
   DOWN = 5  # Jaune
   OK   = 6  # Vert
-  BACK = 17 # Noir
-  #    = 27 # Bleu
+  BACK = 27 # Noir
+  #    = 17 # Bleu
 
   def __init__(self, down=None, up=None, ok=None, back=None):
     GPIO.setmode(GPIO.BCM)

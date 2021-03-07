@@ -61,7 +61,7 @@ class Display(threading.Thread):
       max_width = max(max_width,len(items) * 8 + 1)    
       
       self.gpio = Gpio(ok=self.__ok,back=self.__back)
-    self.gpio.start()
+#    self.gpio.start()
     
     self.virtual = viewport(self.device,width=max_width,height=(len(items) * 8))
     self.active  = 0
@@ -154,7 +154,7 @@ class Clock(threading.Thread):
 
     if platform.machine().startswith('arm'):
       # create matrix device
-      serial = spi(port=0,device=0,gpio=noop())
+      serial = spi(port=0,device=1,gpio=noop())
       self.device = max7219(serial,cascaded=4,block_orientation=-90)
     else:
       # create emulator device
@@ -167,7 +167,7 @@ class Clock(threading.Thread):
   def start(self, ok=None, back=None):
     logger.debug('start')
     self.gpio = Gpio(ok=self.__ok,back=self.__back)
-    self.gpio.start()
+#    self.gpio.start()
 
     if ok:
       self.ok = ok
@@ -211,9 +211,8 @@ class Clock(threading.Thread):
       self.back(self)
 
 if __name__ == "__main__":
-  #items = "Florence"
-  items = ["Bonjour","Florence","David","Victor","Eva","Laura"]
-  item  = "Victor"
+  items = ["Bonjour","David"]
+  items  = "David"
 
   def ok(display,item):
     display.stop()
