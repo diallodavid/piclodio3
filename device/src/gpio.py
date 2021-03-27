@@ -13,26 +13,26 @@ class Gpio:
   def __init__(self, down=None, up=None, ok=None, back=None):
     GPIO.setmode(GPIO.BCM)
     
-    GPIO.setup(self.UP,   GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(self.DOWN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(self.OK,   GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(self.BACK, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(self.UP,   GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    GPIO.setup(self.DOWN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    GPIO.setup(self.OK,   GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    GPIO.setup(self.BACK, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
     if down: 
       self.down = down
-      GPIO.add_event_detect(self.DOWN, GPIO.FALLING, callback=self.__down, bouncetime=200)
+      GPIO.add_event_detect(self.DOWN, GPIO.RISING, callback=self.__down, bouncetime=200)
 
     if up: 
       self.up = up
-      GPIO.add_event_detect(self.UP, GPIO.FALLING, callback=self.__up, bouncetime=200)
+      GPIO.add_event_detect(self.UP, GPIO.RISING, callback=self.__up, bouncetime=200)
 
     if ok: 
       self.ok = ok
-      GPIO.add_event_detect(self.OK, GPIO.FALLING, callback=self.__ok, bouncetime=200)
+      GPIO.add_event_detect(self.OK, GPIO.RISING, callback=self.__ok, bouncetime=200)
 
     if back: 
       self.back = back
-      GPIO.add_event_detect(self.BACK, GPIO.FALLING, callback=self.__back, bouncetime=200)
+      GPIO.add_event_detect(self.BACK, GPIO.RISING, callback=self.__back, bouncetime=200)
     logger.debug('GPIO created')
 
   def stop(self):
