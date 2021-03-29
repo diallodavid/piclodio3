@@ -58,3 +58,14 @@ class Gpio:
   def __back(self, channel):
     logger.debug('GPIO back <%d>',channel)
     self.back()
+
+if __name__ == "__main__":
+  logging.basicConfig(level=logging.DEBUG)
+
+  def cbk(channel):
+    logger.debug('GPIO <%d>',channel)
+
+  gpio = Gpio(ok=cbk,back=cbk,up=cbk,down=cbk)
+
+  while 1:
+    pass

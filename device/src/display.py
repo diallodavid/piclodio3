@@ -223,8 +223,7 @@ if __name__ == "__main__":
   logging.basicConfig(level=logging.DEBUG)
 
   display = Display()
-#  display.start(items,ok=ok,back=back)
-  display.start(items,item,ok=ok,back=back)
+  display.start(items,ok=ok,back=back)
   display.join()
 
 #  def ok(clock):
