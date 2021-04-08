@@ -4,15 +4,23 @@ import RPi.GPIO as GPIO
 logger = logging.getLogger(__name__)
 
 class Gpio:
-  UP   = 4  # Rouge
-  DOWN = 5  # Jaune
-  OK   = 6  # Vert
-  BACK = 27 # Noir
-  #    = 17 # Bleu
+  UP     = 22 # Up
+  L_UP   = 27 # Light up
+  DOWN   = 24 # Down
+  L_DOWN = 23 # Light down
+  OK     = 6  # Ok
+  L_OK   = 5  # Light ok
+  BACK   = 21 # Back
+  L_BACK = 20 # Light back
 
   def __init__(self, down=None, up=None, ok=None, back=None):
     GPIO.setmode(GPIO.BCM)
     
+    GPIO.setup(self.L_UP,   GPIO.OUT)
+    GPIO.setup(self.L_DOWN, GPIO.OUT)
+    GPIO.setup(self.L_OK,   GPIO.OUT)
+    GPIO.setup(self.L_BACK, GPIO.OUT)
+
     GPIO.setup(self.UP,   GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     GPIO.setup(self.DOWN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     GPIO.setup(self.OK,   GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
