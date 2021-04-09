@@ -9,7 +9,7 @@ class Gpio:
   DOWN   = 24 # Down
   L_DOWN = 23 # Light down
   OK     = 6  # Ok
-  L_OK   = 5  # Light ok
+  L_OK   = 25 # Light ok
   BACK   = 21 # Back
   L_BACK = 20 # Light back
 
@@ -28,18 +28,22 @@ class Gpio:
 
     if down: 
       self.down = down
+      GPIO.output(self.L_DOWN, GPIO.HIGH) 
       GPIO.add_event_detect(self.DOWN, GPIO.RISING, callback=self.__down, bouncetime=200)
 
     if up: 
       self.up = up
+      GPIO.output(self.L_UP, GPIO.HIGH) 
       GPIO.add_event_detect(self.UP, GPIO.RISING, callback=self.__up, bouncetime=200)
 
     if ok: 
       self.ok = ok
+      GPIO.output(self.L_OK, GPIO.HIGH) 
       GPIO.add_event_detect(self.OK, GPIO.RISING, callback=self.__ok, bouncetime=200)
 
     if back: 
       self.back = back
+      GPIO.output(self.L_BACK, GPIO.HIGH) 
       GPIO.add_event_detect(self.BACK, GPIO.RISING, callback=self.__back, bouncetime=200)
     logger.debug('GPIO created')
 
@@ -49,6 +53,11 @@ class Gpio:
     GPIO.remove_event_detect(self.UP)
     GPIO.remove_event_detect(self.OK)
     GPIO.remove_event_detect(self.BACK)
+
+    GPIO.output(self.L_DOWN, GPIO.LOW) 
+    GPIO.output(self.L_UP,   GPIO.LOW) 
+    GPIO.output(self.L_OK,   GPIO.LOW) 
+    GPIO.output(self.L_BACK, GPIO.LOW) 
     logger.debug('GPIO all events removed')
 
   def __down(self, channel):
