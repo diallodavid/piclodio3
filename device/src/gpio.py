@@ -8,10 +8,10 @@ class Gpio:
   L_UP   = 27 # Light up
   DOWN   = 24 # Down
   L_DOWN = 23 # Light down
-  OK     = 6  # Ok
+  OK     = 5  # Ok
   L_OK   = 25 # Light ok
-  BACK   = 21 # Back
-  L_BACK = 20 # Light back
+  BACK   = 26 # Back
+  L_BACK = 6  # Light back
 
   def __init__(self, down=None, up=None, ok=None, back=None):
     GPIO.setmode(GPIO.BCM)
