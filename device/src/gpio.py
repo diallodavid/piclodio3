@@ -79,8 +79,8 @@ class Gpio:
 if __name__ == "__main__":
   logging.basicConfig(level=logging.DEBUG)
 
-  def cbk(channel):
-    logger.debug('GPIO <%d>',channel)
+  def cbk():
+    pass
 
   gpio = Gpio(ok=cbk,back=cbk,up=cbk,down=cbk)
 

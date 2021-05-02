@@ -211,27 +211,11 @@ class Clock(threading.Thread):
       self.back(self)
 
 if __name__ == "__main__":
-  items = ["Bonjour","David"]
-  items  = "David"
-
-  def ok(display,item):
-    display.stop()
-     
-  def back(display,item):
-    display.stop()
-
   logging.basicConfig(level=logging.DEBUG)
 
-  display = Display()
-  display.start(items,ok=ok,back=back)
-  display.join()
+  def cbk(clock):
+    clock.stop()
 
-#  def ok(clock):
-#    clock.stop()
-#     
-#  def back(clock):
-#    clock.stop()
-#
-#  clock = Clock()
-#  clock.start(ok=ok,back=back)
-#  clock.join()
+  clock = Clock()
+  clock.start(ok=cbk,back=cbk)
+  clock.join()
